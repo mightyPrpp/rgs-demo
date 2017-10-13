@@ -1,6 +1,10 @@
 package com.example.demoproject.Controllers;
 
-import org.slf4j.LoggerFactory;
+
+import com.example.demoproject.Model.LoginForm;
+//import com.example.demoproject.Services. ;
+//.Services.AccountServiceImpl;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(AccountServiceImpl.class);
+    //private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     private static final String LOGIN_FORM = "loginForm";
 

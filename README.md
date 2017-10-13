@@ -2,7 +2,7 @@
 
 *Spring Boot Java Framework.*
 
-##A car service app designed to handle the everyday jobs of car service.
+## A car service app designed to handle the everyday jobs of car service.
 There are two main users, the admin and the clients.
 
 *Technical Requirements:*

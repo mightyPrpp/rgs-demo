@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private AccountService accountService;
+    //private AccountService accountService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-        accountService.login(username, password);
+       // accountService.login(username, password);
         return new UsernamePasswordAuthenticationToken(username, password);
     }
 

@@ -34,7 +34,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")                           //glykeria
                 .logoutSuccessfullUrl("/login")                 //glykeria
                 .permitAll()
-                
+
 
 
 

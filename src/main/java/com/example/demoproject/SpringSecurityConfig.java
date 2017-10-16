@@ -26,10 +26,23 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         http.authorizeRequests()
+                .formLogin()   //glykeria
+                .LoginPage("/login")  //glykeria
+                .defaultSuccessUrl("/") //otan ginei success ua pigainei ekei
+                .and() //append to login me to logout
+                .logout()                                   //glykeria
+                .logoutUrl("/logout")                           //glykeria
+                .logoutSuccessfullUrl("/login")                 //glykeria
+                .permitAll()
+                
+
+
+
+
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().fullyAuthenticated()
-                .and().csrf().disable()
-                .formLogin().successHandler(successHandler)
+                .and().csrf().disable()  //ok
+                .formLogin().successHandler(LoginSuccessHandler)
                 .loginPage("/login")
                 .permitAll()
                 .usernameParameter("email")

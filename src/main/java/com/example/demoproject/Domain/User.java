@@ -2,6 +2,8 @@ package com.example.demoproject.Domain;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
 
 @Entity
 public class User implements Serializable {
@@ -23,15 +25,21 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String email;
 
+    @Column
+    private String role;
+
+
     public User() {
     }
 
-    public User(String username, String password, String firstname, String lastname, String email) {
+    public User(String username, String password, String firstname, String lastname, String email, String role) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.role = role;
+
     }
 
     public String getUsername() {
@@ -74,6 +82,22 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -83,6 +107,7 @@ public class User implements Serializable {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

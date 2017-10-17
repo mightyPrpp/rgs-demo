@@ -34,11 +34,21 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")                           //glykeria
                 .logoutSuccessfullUrl("/login")                 //glykeria
                 .permitAll()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").anonymous()
+                .antMatchers("/adminPage").hasAnyAuthority("ADMIN")
+                .antMatchers("/userPage").hasAnyAuthority("SIMPLE")
+
+                .and()
+                .authenticationProvider(loginAuthenticationProvider);
 
 
 
 
 
+        /*
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().fullyAuthenticated()
                 .and().csrf().disable()  //ok
@@ -52,6 +62,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
                 .permitAll();
+                */
     }
 
     @Autowired

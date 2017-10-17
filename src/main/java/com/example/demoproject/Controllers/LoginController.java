@@ -5,6 +5,7 @@ import com.example.demoproject.Model.LoginForm;
 //import com.example.demoproject.Services. ;
 //.Services.AccountServiceImpl;
 //import org.slf4j.LoggerFactory;
+import com.example.demoproject.Services.LoginServiceImpl;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(AccountServiceImpl.class); //TODO create to DAO the Impl.class
+    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class); //TODO create to DAO the Impl.class
 
     private static final String LOGIN_FORM = "loginForm";// final kaneis de mporei na ta tropopoisei, static giati de xreiazetai na ginei new
 

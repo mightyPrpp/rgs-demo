@@ -1,53 +1,54 @@
+
+
 package com.example.demoproject.Services;
+
+
+import com.example.demoproject.Domain.User;
+import com.example.demoproject.Exceptions.InvalidCredentialsException;   //Invalid credentials expetio
+import com.example.demoproject.Repositories.UserRepository;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
-//import com.example.demoproject.DAO.
-import com.example.demoproject.Domain.User;
-import com.example.demoproject.Exceptions.LogoutException;
-
 import org.springframework.transaction.annotation.Transactional;
 
-public class LoginServiceImpl {
+import java.util.HashSet;
+import java.util.Set;
 
 
-    @Service
-    @Transactional
-    public class AccountServiceImpl implements LoginService {
-        private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(AccountServiceImpl.class);
+@Service
+@Transactional
+public class LoginServiceImpl implements LoginService {
+    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class);
+    private Set<String> loggedInUsers = new HashSet<>();
 
-        @Autowired
-        private AccountDao accountDao;
 
-        @Override
-        public void login(String username, String password) throws AuthenticationException {
+    @Autowired
+    private UserRepository userRepository;
 
-            try {
-                accountDao.login(username, password);
-            } catch (Exception e) {
-                throw new InvalidCredentialsException("User not found!");
-            }
+    @Override
+    public User login(String username, String password) throws AuthenticationException {
+
+        User retrievedUser = userRepository.findByUsernameAndPassword(username, password);
+        if (retrievedUser == null) {
+            throw new InvalidCredentialsException("User not found!");
         }
 
-        @Override
-        public void logout(String username) {
-            try {
-                accountDao.logout(username);
-            } catch (Exception e) {
-                throw new LogoutException("User not logged in!");
-            }
-        }
-/*
-        @Override
-        public void register(User user) throws Exception {
-            accountDao.register(user);
-            LOG.debug("User has been registered!");
-        }  */
-
+        loggedInUsers.add(username);
+        return retrievedUser;
     }
 
-
+    @Override
+    public void logout(String username) {
+        loggedInUsers.remove(username);
+    }
+/*
+    @Override
+    public void register(User user) throws Exception {
+        userRepository.save(user);
+        LOG.debug("User has been registered!");
+    } */
 
 }

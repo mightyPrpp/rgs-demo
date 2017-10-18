@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class); //TODO create to DAO the Impl.class
-
+    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginServiceImpl.class);
     private static final String LOGIN_FORM = "loginForm";// final kaneis de mporei na ta tropopoisei, static giati de xreiazetai na ginei new
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

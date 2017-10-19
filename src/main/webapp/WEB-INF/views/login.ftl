@@ -21,10 +21,10 @@ ${errorMessage!""}
 
 <ul class="tab-group">
     <li class="tab active"><a href="/register">Sign Up</a></li>
-    <li class="tab"><a href="/login">Log In</a></li>
+    <!--<li class="tab"><a href="/login">Log In</a></li> -->
 </ul>
 
-
+<!--
 <div class="form">
     <form action="/login" method="post" id="loginForm" name="loginForm">
         <label for="username">Username</label>
@@ -36,6 +36,83 @@ ${errorMessage!""}
         <button type="submit">Login</button>
     </form>
 </div>
+-->
 
 
-</body>
+<style>
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+
+
+
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+    }
+</style>
+
+
+<h2>Login Form</h2>
+
+
+
+
+    <div class="form">
+        <form action="/login" method="post" id="loginForm" name="loginForm">
+        <label for="username"><b>Username</b></label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" autocomplete="off" required/>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="password"/>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+<div class="container" style="background-color:#f1f1f1">
+
+    </div>
+
+
+
+
+
+
+

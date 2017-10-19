@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sign-Up/Login Form</title>
+    <title>Car Service login portal</title>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="static/style.css">
@@ -24,24 +24,14 @@ ${errorMessage!""}
     <!--<li class="tab"><a href="/login">Log In</a></li> -->
 </ul>
 
-<!--
-<div class="form">
-    <form action="/login" method="post" id="loginForm" name="loginForm">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="username" autocomplete="off"/>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="password"/>
-
-        <button type="submit">Login</button>
-    </form>
-</div>
--->
 
 
 <style>
     form {
-        border: 3px solid #f1f1f1;
+        width: 50%;
+        margin: auto;
+
     }
 
     input[type=text], input[type=password] {
@@ -72,7 +62,8 @@ ${errorMessage!""}
 
 
     .container {
-        padding: 16px;
+        height: 100%;
+        padding-top: 16px;
     }
 
     span.psw {
@@ -91,22 +82,22 @@ ${errorMessage!""}
 </style>
 
 
-<h2>Login Form</h2>
+<h2>Car Service Login Form</h2>
 
 
-
+<div class="container" style="background-color: #e7e7e7">
 
     <div class="form">
         <form action="/login" method="post" id="loginForm" name="loginForm">
         <label for="username"><b>Username</b></label>
             <input type="text" name="username" id="username" placeholder="Enter Username" autocomplete="off" required/>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="password"/>
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" id="password" placeholder="Enter Password"required/>
             <button type="submit">Login</button>
         </form>
     </div>
 
-<div class="container" style="background-color:#f1f1f1">
+
 
     </div>
 

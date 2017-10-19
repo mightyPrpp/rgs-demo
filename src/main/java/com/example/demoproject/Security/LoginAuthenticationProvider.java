@@ -1,6 +1,6 @@
 package com.example.demoproject.Security;
 
-////import com.codingSchool.bookstore.Services.AccountService;
+import com.example.demoproject.Services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    //private AccountService accountService;
+    private LoginService loginService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-       // accountService.login(username, password);
+        loginService.login(username, password);
         return new UsernamePasswordAuthenticationToken(username, password);
     }
 
